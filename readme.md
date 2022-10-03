@@ -11,7 +11,6 @@ sudo apt install nginx
 # Etapa 2 - Verificando seu Servidor Web
 Passo 3 — Verificando seu Servidor Web
 
-
 # Etapa 3 - Configurando Blocos do Servidor (Recomendado)
 Para que o Nginx exiba este conteúdo, é necessário criar um bloco de servidor com as diretivas corretas. Em vez de modificar o arquivo de configuração padrão diretamente, vamos fazer um novo em /etc/nginx/sites-available/example.com:
 
@@ -25,7 +24,6 @@ server {
     listen [::]:80;
     server_name  wiki.dominio.com;
 
-
   location / {
     proxy_pass http://127.0.0.1:8080;
     proxy_http_version 1.1;
@@ -35,6 +33,7 @@ server {
     proxy_cache_bypass $http_upgrade;
   }
 }
+
 Salve e feche o arquivo quando você terminar.
 
 Em seguida, vamos habilitar o arquivo criando um link dele para o diretório sites-enabled, de onde o Nginx lê durante a inicialização:
